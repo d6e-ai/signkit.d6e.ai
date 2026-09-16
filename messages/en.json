@@ -1,11 +1,11 @@
 {
-	"site_description": "A free and open-source electronic-signature platform you can self-host on serverless infrastructure.",
+	"site_description": "A free, open-source alternative to Docusign that you can self-host on serverless infrastructure.",
 	"language": "Language",
 	"theme": "Theme",
 	"theme_light": "Light",
 	"theme_dark": "Dark",
 	"theme_system": "System",
-	"hero_eyebrow": "Free and open-source electronic signatures",
+	"hero_eyebrow": "The open-source alternative to Docusign",
 	"hero_title": "Self-host e-signatures for free.",
 	"hero_body": "Start on a free serverless tier and keep your agreements, data, and operations under your control—without running a server.",
 	"hosting_label": "Supported serverless platforms",

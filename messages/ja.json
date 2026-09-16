@@ -1,11 +1,11 @@
 {
-	"site_description": "サーバーレス環境に無料枠からセルフホストできる、オープンソースの電子署名プラットフォーム。",
+	"site_description": "Docusignに代わる、サーバーレス環境へ無料枠からセルフホストできるオープンソース電子署名。",
 	"language": "言語",
 	"theme": "テーマ",
 	"theme_light": "ライト",
 	"theme_dark": "ダーク",
 	"theme_system": "システム",
-	"hero_eyebrow": "無料で使える、オープンソースの電子署名",
+	"hero_eyebrow": "Docusignのオープンソース代替",
 	"hero_title": "電子署名を、無料でセルフホスト。",
 	"hero_body": "無料枠のサーバーレス環境から始めて、サーバー管理なし。契約書もデータも運用も、自分の管理下に置けます。",
 	"hosting_label": "対応サーバーレスプラットフォーム",
