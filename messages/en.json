@@ -16,6 +16,7 @@
 	"copied": "Copied",
 	"footer_copyright": "© 2026 SignKit contributors.",
 	"footer_license": "AGPL-3.0",
+	"footer_contact": "Contact the core maintainer",
 	"guide_title": "SignKit guide",
 	"guide_intro": "Deploy a SignKit instance, claim its first owner, and send an agreement from the browser.",
 	"guide_deploy_title": "1. Deploy the instance",

@@ -16,6 +16,7 @@
 	"copied": "コピーしました",
 	"footer_copyright": "© 2026 SignKit contributors.",
 	"footer_license": "AGPL-3.0",
+	"footer_contact": "コアメンテナーへの問い合わせ",
 	"guide_title": "SignKit 操作ガイド",
 	"guide_intro": "SignKitインスタンスをデプロイし、最初のオーナーを登録して、ブラウザから契約書を送信するまでの流れです。",
 	"guide_deploy_title": "1. インスタンスをデプロイする",

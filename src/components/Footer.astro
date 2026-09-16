@@ -1,12 +1,13 @@
 ---
-import type { Dictionary } from '../i18n';
+import type { Dictionary, Locale } from '../i18n';
 import { site } from '../site';
 
 interface Props {
+	locale: Locale;
 	messages: Dictionary;
 }
 
-const { messages: m } = Astro.props;
+const { locale, messages: m } = Astro.props;
 ---
 
 <footer class="border-t">
@@ -20,6 +21,16 @@ const { messages: m } = Astro.props;
 				rel="noreferrer"
 			>
 				{m.footer_license}
+			</a>
+		</p>
+		<p>
+			<a
+				class="underline underline-offset-4 hover:text-foreground"
+				href={`${site.maintainerContact}/${locale}/contact`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				{m.footer_contact}
 			</a>
 		</p>
 	</div>
