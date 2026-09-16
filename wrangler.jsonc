@@ -1,0 +1,13 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "signkit-d6e-ai",
+	"account_id": "38bc6ee36af6c32572f33f573ebe741f",
+	"compatibility_date": "2026-09-15",
+	"workers_dev": false,
+	"preview_urls": false,
+	"routes": [{ "pattern": "signkit.d6e.ai", "custom_domain": true }],
+	"assets": {
+		"directory": "./dist",
+		"html_handling": "drop-trailing-slash",
+	},
+}

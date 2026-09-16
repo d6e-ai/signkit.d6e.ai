@@ -1,0 +1,62 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.svelte';
+import type { Dictionary, Locale } from '../i18n';
+import { site } from '../site';
+import '../styles/global.css';
+
+interface Props {
+	locale: Locale;
+	messages: Dictionary;
+	pageTitle?: string;
+	description?: string;
+	pagePath?: string;
+}
+
+const {
+	locale,
+	messages,
+	pageTitle,
+	description = messages.site_description,
+	pagePath = '',
+} = Astro.props;
+const title = pageTitle ? `${pageTitle} | ${site.name}` : `${site.name} — ${messages.hero_title}`;
+const pageUrl = `${site.url}/${locale}${pagePath}`;
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="canonical" href={pageUrl} />
+		<link rel="alternate" hreflang="en" href={`${site.url}/en${pagePath}`} />
+		<link rel="alternate" hreflang="ja" href={`${site.url}/ja${pagePath}`} />
+		<link rel="alternate" hreflang="x-default" href={`${site.url}/en${pagePath}`} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={pageUrl} />
+		<script is:inline>
+			const storedMode = localStorage.getItem('mode-watcher-mode') ?? 'system';
+			const isDark =
+				storedMode === 'dark' ||
+				(storedMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+			document.documentElement.classList.toggle('dark', isDark);
+			document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+		</script>
+	</head>
+	<body>
+		<div class="flex min-h-svh flex-col">
+			<Header {locale} messages={messages} {pagePath} client:load />
+			<main class="container mx-auto flex-1 p-4">
+				<slot />
+			</main>
+			<Footer messages={messages} />
+		</div>
+	</body>
+</html>

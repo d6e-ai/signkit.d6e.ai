@@ -1,0 +1,26 @@
+---
+import type { Dictionary } from '../i18n';
+import { site } from '../site';
+
+interface Props {
+	messages: Dictionary;
+}
+
+const { messages: m } = Astro.props;
+---
+
+<footer class="border-t">
+	<div class="container mx-auto flex flex-col items-center justify-center gap-2 px-4 py-6 text-center text-sm text-muted-foreground">
+		<p>{m.footer_copyright}</p>
+		<p>
+			<a
+				class="underline underline-offset-4 hover:text-foreground"
+				href={site.license}
+				target="_blank"
+				rel="noreferrer"
+			>
+				{m.footer_license}
+			</a>
+		</p>
+	</div>
+</footer>

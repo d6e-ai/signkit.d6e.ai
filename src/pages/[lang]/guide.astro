@@ -1,0 +1,123 @@
+---
+import { IconArrowLeft, IconExternalLink } from '@tabler/icons-svelte';
+
+import { Button } from '$lib/components/ui/button';
+import * as Alert from '$lib/components/ui/alert';
+import CommandBlock from '../../components/CommandBlock.svelte';
+import { getDictionary, locales, type Locale } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+	return locales.map((lang: Locale) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const m = getDictionary(lang);
+const planCommand =
+	'pnpm dlx create-signkit@0.1.2 --cloudflare plan --account-id <32-hex-account-id>';
+const oauthInput = `cat <<'EOF' > /secure/path/signkit-oauth.json
+{
+  "D6E_AUTH_CLIENT_ID": "<id>",
+  "D6E_AUTH_CLIENT_SECRET": "<secret>"
+}
+EOF
+chmod 0600 /secure/path/signkit-oauth.json`;
+const deployCommand = `pnpm dlx create-signkit@0.1.2 --cloudflare deploy \\
+  --account-id <32-hex-account-id> \\
+  --email-from ops@example.com \\
+  --domain sign.example.com \\
+  --bootstrap-owner-email owner@example.com \\
+  --yes < /secure/path/signkit-oauth.json`;
+---
+
+<BaseLayout locale={lang} messages={m} pageTitle={m.guide_title} pagePath="/guide">
+	<article class="py-8 sm:py-12">
+		<div class="flex flex-col gap-10">
+			<header class="flex flex-col gap-4">
+				<Button href={`/${lang}`} variant="ghost" class="self-start">
+					<IconArrowLeft data-icon="inline-start" />
+					{m.back_home}
+				</Button>
+				<h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{m.guide_title}</h1>
+				<p class="text-base leading-7 text-muted-foreground">{m.guide_intro}</p>
+			</header>
+
+			<section class="flex flex-col gap-5">
+				<h2 class="text-2xl font-semibold tracking-tight">{m.guide_deploy_title}</h2>
+				<p class="leading-7 text-muted-foreground">{m.guide_deploy_body}</p>
+				<div class="flex flex-col gap-4">
+					<CommandBlock
+						title={m.guide_plan_label}
+						command={planCommand}
+						copyLabel={m.copy_command}
+						copiedLabel={m.copied}
+						client:visible
+					/>
+					<CommandBlock
+						title={m.guide_secrets_label}
+						command={oauthInput}
+						copyLabel={m.copy_command}
+						copiedLabel={m.copied}
+						promptLines={[0, 6]}
+						client:visible
+					/>
+					<CommandBlock
+						title={m.guide_deploy_label}
+						command={deployCommand}
+						copyLabel={m.copy_command}
+						copiedLabel={m.copied}
+						client:visible
+					/>
+				</div>
+				<Alert.Root>
+					<Alert.Title>{m.guide_security_title}</Alert.Title>
+					<Alert.Description>{m.guide_security_note}</Alert.Description>
+				</Alert.Root>
+			</section>
+
+			<section class="flex flex-col gap-4">
+				<h2 class="text-2xl font-semibold tracking-tight">{m.guide_claim_title}</h2>
+				<p class="leading-7 text-muted-foreground">{m.guide_claim_body}</p>
+			</section>
+
+			<section class="flex flex-col gap-4">
+				<h2 class="text-2xl font-semibold tracking-tight">{m.guide_workflow_title}</h2>
+				<ol class="ml-5 flex list-decimal flex-col gap-3 leading-7 text-muted-foreground">
+					<li>{m.guide_step_1}</li>
+					<li>{m.guide_step_2}</li>
+					<li>{m.guide_step_3}</li>
+					<li>{m.guide_step_4}</li>
+					<li>{m.guide_step_5}</li>
+				</ol>
+			</section>
+
+			<section class="flex flex-col gap-4">
+				<h2 class="text-2xl font-semibold tracking-tight">{m.guide_links_title}</h2>
+				<ul class="ml-5 flex list-disc flex-col gap-2">
+					<li>
+						<Button
+							href="https://github.com/d6e-ai/signkit/blob/main/docs/create-signkit.md"
+							variant="link"
+							target="_blank"
+							rel="noreferrer"
+						>
+							{m.guide_operator_docs}
+							<IconExternalLink data-icon="inline-end" />
+						</Button>
+					</li>
+					<li>
+						<Button
+							href="https://github.com/d6e-ai/signkit/blob/main/docs/api.md"
+							variant="link"
+							target="_blank"
+							rel="noreferrer"
+						>
+							{m.guide_api_docs}
+							<IconExternalLink data-icon="inline-end" />
+						</Button>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</article>
+</BaseLayout>
