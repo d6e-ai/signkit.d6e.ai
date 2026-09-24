@@ -42,7 +42,7 @@
 					rel="noreferrer"
 					title="Cloudflare"
 				>
-					<CloudflareLogo class="h-8 w-auto" />
+					<CloudflareLogo class="h-7 w-auto" />
 					<span class="sr-only">Cloudflare</span>
 				</a>
 			</li>
@@ -54,7 +54,7 @@
 					rel="noreferrer"
 					title="Vercel"
 				>
-					<VercelLogo class="h-6 w-auto dark:rounded-md dark:bg-white dark:p-1" />
+					<VercelLogo class="h-7 w-auto" />
 					<span class="sr-only">Vercel</span>
 				</a>
 			</li>
