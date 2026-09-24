@@ -1,15 +1,12 @@
 <script lang="ts">
-	import {
-		IconArrowRight,
-		IconBrandCloudflare,
-		IconBrandGithub,
-		IconBrandVercelFilled,
-	} from '@tabler/icons-svelte';
+	import { IconArrowRight, IconBrandGithub } from '@tabler/icons-svelte';
 
 	import { Button } from '$lib/components/ui/button';
 	import type { Dictionary, Locale } from '../i18n';
 	import { site } from '../site';
+	import CloudflareLogo from './CloudflareLogo.svelte';
 	import CommandBlock from './CommandBlock.svelte';
+	import VercelLogo from './VercelLogo.svelte';
 
 	interface Props {
 		locale: Locale;
@@ -45,7 +42,7 @@
 					rel="noreferrer"
 					title="Cloudflare"
 				>
-					<IconBrandCloudflare class="size-8 text-[#f38020]" aria-hidden="true" />
+					<CloudflareLogo class="h-7 w-auto" />
 					<span class="sr-only">Cloudflare</span>
 				</a>
 			</li>
@@ -57,7 +54,7 @@
 					rel="noreferrer"
 					title="Vercel"
 				>
-					<IconBrandVercelFilled class="size-7" aria-hidden="true" />
+					<VercelLogo class="h-7 w-auto" />
 					<span class="sr-only">Vercel</span>
 				</a>
 			</li>
