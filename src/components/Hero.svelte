@@ -54,7 +54,7 @@
 					rel="noreferrer"
 					title="Vercel"
 				>
-					<VercelLogo class="h-6 w-auto" />
+					<VercelLogo class="h-6 w-auto dark:rounded-md dark:bg-white dark:p-1" />
 					<span class="sr-only">Vercel</span>
 				</a>
 			</li>
