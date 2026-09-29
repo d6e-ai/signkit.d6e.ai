@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted.
+Superseded in part by [2026-09-29 root locale selection](2026-09-29-root-locale-selection.md). The deployment and explicit locale URL decisions remain accepted.
 
 ## Decision
 
