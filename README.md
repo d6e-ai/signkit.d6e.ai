@@ -9,7 +9,9 @@ pnpm install
 pnpm dev
 ```
 
-English lives under `/en`; Japanese lives under `/ja`. The root path redirects to `/en`, so English content never occupies an unprefixed URL.
+**This site has moved.** The product page is now `https://www.d6e.ai/[locale]/signkit` and the operator guide is `https://www.d6e.ai/[locale]/developers/signkit` (source: `apps/signkit` and `apps/developers` in d6e-ai/d6e-auth). Every `/en`, `/ja` and guide URL here answers with a permanent redirect (`public/_redirects`), and the root page sends the visitor to the new address for their browser language. The pages below are no longer reachable except through the root page; this repository is kept only to serve the redirects.
+
+English lived under `/en`; Japanese lived under `/ja`.
 
 ## Checks and deployment
 

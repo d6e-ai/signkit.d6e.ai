@@ -1,0 +1,14 @@
+# signkit.d6e.ai moved to www.d6e.ai. Permanent redirects, first match wins.
+# The product page is www.d6e.ai/[locale]/signkit; the operator guide moved to
+# www.d6e.ai/[locale]/developers/signkit. The root page (src/pages/index.astro)
+# picks the locale from the browser and sends the visitor to the same places.
+/en https://www.d6e.ai/en-US/signkit 301
+/en/ https://www.d6e.ai/en-US/signkit 301
+/en/guide https://www.d6e.ai/en-US/developers/signkit 301
+/en/guide/ https://www.d6e.ai/en-US/developers/signkit 301
+/en/* https://www.d6e.ai/en-US/signkit 301
+/ja https://www.d6e.ai/ja-JP/signkit 301
+/ja/ https://www.d6e.ai/ja-JP/signkit 301
+/ja/guide https://www.d6e.ai/ja-JP/developers/signkit 301
+/ja/guide/ https://www.d6e.ai/ja-JP/developers/signkit 301
+/ja/* https://www.d6e.ai/ja-JP/signkit 301
